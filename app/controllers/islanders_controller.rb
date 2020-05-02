@@ -69,6 +69,6 @@ class IslandersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def islander_params
-      params.require(:islander).permit(:email, :timezzone)
+      params.require(:islander).permit(:email, :timezone)
     end
 end

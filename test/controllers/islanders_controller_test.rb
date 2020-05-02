@@ -17,7 +17,7 @@ class IslandersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create islander" do
     assert_difference('Islander.count') do
-      post islanders_url, params: { islander: { email: @islander.email, timezzone: @islander.timezzone } }
+      post islanders_url, params: { islander: { email: @islander.email, timezone: @islander.timezone } }
     end
 
     assert_redirected_to islander_url(Islander.last)
@@ -34,7 +34,7 @@ class IslandersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update islander" do
-    patch islander_url(@islander), params: { islander: { email: @islander.email, timezzone: @islander.timezzone } }
+    patch islander_url(@islander), params: { islander: { email: @islander.email, timezone: @islander.timezone } }
     assert_redirected_to islander_url(@islander)
   end
 

@@ -2,8 +2,8 @@
 
 one:
   email: MyString
-  timezzone: MyString
+  timezone: MyString
 
 two:
   email: MyString
-  timezzone: MyString
+  timezone: MyString

@@ -15,7 +15,7 @@ class IslandersTest < ApplicationSystemTestCase
     click_on "New Islander"
 
     fill_in "Email", with: @islander.email
-    fill_in "Timezzone", with: @islander.timezzone
+    fill_in "Timezone", with: @islander.timezone
     click_on "Create Islander"
 
     assert_text "Islander was successfully created"
@@ -27,7 +27,7 @@ class IslandersTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Email", with: @islander.email
-    fill_in "Timezzone", with: @islander.timezzone
+    fill_in "Timezone", with: @islander.timezone
     click_on "Update Islander"
 
     assert_text "Islander was successfully updated"
