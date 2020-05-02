@@ -67,5 +67,10 @@ RUN apt-get update \
     # && apt-get clean -y \
     # && rm -rf /var/lib/apt/lists/*
 
+# this is useful
+RUN apt-get install -y sqlite
+
+ENV BUNDLE_SILENCE_ROOT_WARNING stfu
+
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
