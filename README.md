@@ -1,54 +1,47 @@
-# Ruby 2 Rails 5
+# Secret Project Codename Negroni
 
-## Summary
+## Development
 
-*Develop Ruby on Rails 5 applications, includes everything you need to get up and running.*
+Assumption: we're running Docker for linux containers, and open this project in VSCode, and have the Remote Containers plugin for VSCode.
 
-| Metadata | Value |  
-|----------|-------|
-| *Contributors* | [Amblizer][la] |
-| *Definition type* | Dockerfile |
-| *Languages, platforms* | Ruby |
+you'll need a volume for the caching of all the gems!!!
 
-## Using this definition with an existing folder
+`docker volume create negronicache`
 
-This definition does not require any special steps to use. Just follow these steps:
+In devcontainer.json, that gets mounted as a volume into the container.
 
-1. If this is your first time using a development container, please follow the [getting started steps](https://aka.ms/vscode-remote/containers/getting-started) to set up your machine.
+Then have VSCode open this project in a container.
 
-2. To start then:
-   1. Start VS Code and open your project folder.
-   2. Press <kbd>F1</kbd> select and **Remote-Containers: Add Development Container Configuration Files...** from the command palette.
-   3. Select the Ruby 2 rails 5 definition.
+## Etc
 
-3. To use latest-and-greatest copy of this definition from the repository:
-   1. Clone this repository.
-   2. Copy the contents of `.devcontainer` and `.vscode` folders under `containers/ruby-2-rails-5/` to the root of your project folder.
-   3. Start VS Code and open your project folder.
+Things you may want to cover:
 
-4. After following step 2 or 3, the contents of the `.devcontainer` folder in your project can be adapted to meet your needs.
+* Ruby version
 
-5. Finally, press <kbd>F1</kbd> and run **Remote-Containers: Reopen Folder in Container** to start using the definition.
+which apparently is 2.5 but we want 2.7 but installing that on Debian 10 is nontrivial
 
-## Testing the definition
+* System dependencies
 
-This definition includes some test code that will help you verify it is working as expected on your system. Follow these steps:
+see Dockerfile
 
-1. If this is your first time using a development container, please follow the [getting started steps](https://aka.ms/vscode-remote/containers/getting-started) to set up your machine.
-2. Clone this repository.
-3. Start VS Code, press <kbd>F1</kbd>, and select **Remote-Containers: Open Folder in Container...**
-4. Select the `containers/ruby-2-rails-5` folder.
-5. After the folder has opened in the container, press <kbd>F5</kbd> to start the project.
-6. You should see "* Listening on tcp://0.0.0.0:3000" in the Debug Console. 
-7. Press <kbd>F1</kbd>. Select **Remote-Containers: Forward Port from Container...** then choose **Forward 3000**.
-8. By browsing http://localhost:3000/ you should see "Yay! You’re on Rails!".
-9. From here, you can add breakpoints or edit the contents of the `test-project` folder to do further testing.
+* Configuration
 
-## License
+* Database creation
 
-Copyright (c) Microsoft Corporation. All rights reserved.
+there's a database?
 
-Licensed under the MIT License. See [LICENSE](https://github.com/Microsoft/vscode-dev-containers/blob/master/LICENSE).
+* Database initialization
 
-<!-- links -->
-[la]: https://code.mzhao.page/
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+cronch cronch
+
+* Deployment instructions
+
+please
+
+* ...
+
+That's supported in Ruby 2.7
