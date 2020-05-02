@@ -1,0 +1,2 @@
+class Islander < ApplicationRecord
+end

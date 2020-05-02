@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Islanders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Timezzone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @islanders.each do |islander| %>
+      <tr>
+        <td><%= islander.email %></td>
+        <td><%= islander.timezzone %></td>
+        <td><%= link_to 'Show', islander %></td>
+        <td><%= link_to 'Edit', edit_islander_path(islander) %></td>
+        <td><%= link_to 'Destroy', islander, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Islander', new_islander_path %>

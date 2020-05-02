@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @islander.email %>
+</p>
+
+<p>
+  <strong>Timezzone:</strong>
+  <%= @islander.timezzone %>
+</p>
+
+<%= link_to 'Edit', edit_islander_path(@islander) %> |
+<%= link_to 'Back', islanders_path %>
