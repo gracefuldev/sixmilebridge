@@ -72,5 +72,8 @@ RUN apt-get install -y sqlite
 
 ENV BUNDLE_SILENCE_ROOT_WARNING stfu
 
+# Spring in Rails is supposed to make development faster but it is not reliable
+ENV DISABLE_SPRING 1
+
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
