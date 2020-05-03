@@ -16,9 +16,13 @@
 		3000
 	],
 	"mounts": [
-		// create this volume if it doesn't exist: `docker volume create negronicache`
+		// You'll need to create this volume if it doesn't exist: `docker volume create negronicache`
 		// You won't regret it. This lets it keep the gem installs between containers.
 		"type=volume,source=negronicache,target=/devcache",
+		// You need a .netrc that lets you log in to heroku.
+		// If you don't have ~/.netrc there, create an empty file.
+		// Then, within this container, run 'heroku login'
+		"type=bind,source=${localEnv:HOME}${localEnv:USERPROFILE}/.netrc,target=/root/.netrc"
 	],
 	"containerEnv": {
 		// store zillions of gems on the volume
