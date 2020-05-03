@@ -1,3 +1,5 @@
 {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "ruby.format": "rufo",
+    "ruby.useLanguageServer": true
 }
