@@ -1,5 +1,5 @@
 module InvitationsHelper
-  def invitation_mailto_link
-    "mailto:?subject=#{@subject}&body=#{@body}"
+  def invitation_mailto_link(interior)
+    mail_to("", interior, subject: @subject, body: @body, )
   end
 end

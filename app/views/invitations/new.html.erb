@@ -2,12 +2,9 @@
 Send this to your friends!
 
 <div class="email-preview">
-<p>
-<span class="email-subject"><%= @subject %></span>
-</p></hr><p>
+<p class="email-subject"><%= @subject %></p>
 <pre class="email-body"><%= @body %></pre>
-</p>
 </div>
 <p>
-<a href="<%= invitation_mailto_link %>" >Click here to send this email</a>
+<%= invitation_mailto_link("Click to send") %>
 </div>
