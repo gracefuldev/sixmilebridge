@@ -1,7 +1,15 @@
 <div>
 Send this to your friends!
 
+<div class="email-preview">
+<p>
+<span class="email-subject"><%= @subject %></span>
+</p></hr><p>
+<pre class="email-body"><%= @body %></pre>
+</p>
+</div>
+<p>
 <a href="mailto:?subject=<%= 
     @subject %>&body=<%= 
-    @body %>" >Click here to invite your friend to catch up</a>
+    @body %>" >Click here to send this email</a>
 </div>
