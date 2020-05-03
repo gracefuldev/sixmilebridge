@@ -1,5 +1,7 @@
 class InvitationsController < ApplicationController
   def new
-    @wavy = [true, false].sample
+    @subject = "Want to catch up sometime ... random?"
+    @body = "I want to catch up with you (and other people) \
+    and I made an app for this"
   end
 end
