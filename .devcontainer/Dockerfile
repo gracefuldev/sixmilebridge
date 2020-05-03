@@ -70,6 +70,9 @@ RUN apt-get update \
 # this is useful
 RUN apt-get install -y sqlite
 
+# and this, so we can install production gems. which is necessary for deploy.
+RUN apt-get install -y libpq-dev
+
 ENV BUNDLE_SILENCE_ROOT_WARNING stfu
 
 # Spring in Rails is supposed to make development faster but it is not reliable
