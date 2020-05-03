@@ -1,7 +1,7 @@
 class InvitationsController < ApplicationController
   def new
     inviter = Islander.for_email("avdi@avdi.codes") # IRL this will come out of the session. For now There Is Only One
-    invitation_link = InvitationLink.for(inviter_id: inviter.id, day: Date.now, description: "the only one")
+    invitation_link = InvitationLink.for(inviter_id: inviter.id, day: Date.new, description: "the only one")
     @subject = "Want to catch up sometime ... random?"
     @body = <<~EOM
       I want to catch up with you (and other people) 
