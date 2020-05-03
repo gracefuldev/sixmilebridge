@@ -23,6 +23,8 @@
 	"containerEnv": {
 		// store zillions of gems on the volume
 		"GEM_HOME": "/devcache/gems",
+		// also bundler, do your things here
+		"BUNDLE_USER_CACHE": "/devcache/bundle",
 		// edit commit messages in VSCode
 		"VISUAL": "code -w"
 	},
