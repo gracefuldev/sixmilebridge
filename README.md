@@ -22,7 +22,6 @@ If you're going to deploy, then you'll need to log in to Heroku.
 
 Inside the container, you can `heroku login`.
 
-
 ### Finally
 
 Then have VSCode open this project in a container.
