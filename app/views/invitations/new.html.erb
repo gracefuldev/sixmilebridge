@@ -6,5 +6,5 @@ Send this to your friends!
 <pre class="email-body"><%= @body %></pre>
 </div>
 <p>
-<%= invitation_mailto_link("Click to send") %>
+<%= mail_to("", "Click to send", subject: @subject, body: @body) %>
 </div>

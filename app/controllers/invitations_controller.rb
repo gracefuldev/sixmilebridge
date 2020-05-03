@@ -4,6 +4,7 @@ class InvitationsController < ApplicationController
     @body = <<~EOM
       I want to catch up with you (and other people) 
       and I made an app for this!
+      
     EOM
   end
 end
