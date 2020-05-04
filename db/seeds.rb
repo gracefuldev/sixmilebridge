@@ -5,3 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Islander.create(email: "avdi@avdi.codes", timezone: "(GMT-06:00) Central Time (US & Canada)")
