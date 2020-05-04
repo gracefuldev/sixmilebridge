@@ -16,9 +16,11 @@
 		3000
 	],
 	"mounts": [
-		// You'll need to create this volume if it doesn't exist: `docker volume create negronicache`
-		// You won't regret it. This lets it keep the gem installs between containers.
-		"type=volume,source=negronicache,target=/devcache",
+		// This is a cache file for development temp files that should persist between 
+		// container rebuilds. E.g. this will keep you from having to wait a billion years
+		// for bundler to rebuild binary Rubygems.
+		// Docker will generate it if it doesn't already exist. Probably.
+		"type=volume,source=sixmilebridgecache,target=/devcache",
 		// You need a .netrc that lets you log in to heroku.
 		// If you don't have ~/.netrc there, create an empty file.
 		// Then, within this container, run 'heroku login'
