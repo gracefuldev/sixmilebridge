@@ -52,8 +52,10 @@ development:
   <<: *default
   compile: true
 
-  # Verifies that correct packages and versions are installed by inspecting package.json, yarn.lock, and node_modules
-  check_yarn_integrity: true
+  # This prevents ANY rails commands from running if yarn is out of date. 
+  # I don't need node modules to be up-to-date in order to run `rails db:seed`,
+  # thanks very much.
+  check_yarn_integrity: false
 
   # Reference: https://webpack.js.org/configuration/dev-server/
   dev_server:
