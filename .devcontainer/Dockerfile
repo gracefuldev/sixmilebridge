@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM ruby:2.7
 
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
@@ -17,22 +17,22 @@ RUN apt-get update \
     #
     # Install vim, git, process tools, lsb-release
     && apt-get install -y \
-        vim \
-        git \
-        openssh-client \
-        less \
-        iproute2 \
-        procps \
-        lsb-release \
+    vim \
+    git \
+    openssh-client \
+    less \
+    iproute2 \
+    procps \
+    lsb-release \
     #
     # Install ruby
     && apt-get install -y \
-        ruby \
-        ruby-dev \
-        build-essential \
-        libsqlite3-dev \
-        zlib1g-dev \
-        libxml2 \
+    ruby \
+    ruby-dev \
+    build-essential \
+    libsqlite3-dev \
+    zlib1g-dev \
+    libxml2 \
     #
     # Install nodejs
     && apt-get install -y nodejs \
@@ -46,14 +46,14 @@ RUN apt-get update \
     #
     # Install debug tools
     && gem install \
-        rake \
-        ruby-debug-ide \
-        debase \
+    rake \
+    ruby-debug-ide \
+    debase \
     #
     # Install sinatra MVC components
     && gem install \
-        rails \
-        webdrivers \
+    rails \
+    webdrivers \
     #
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
     && groupadd --gid $USER_GID $USERNAME \
@@ -62,10 +62,10 @@ RUN apt-get update \
     && apt-get install -y sudo \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
     && chmod 0440 /etc/sudoers.d/$USERNAME
-    # Clean up
-    # && apt-get autoremove -y \
-    # && apt-get clean -y \
-    # && rm -rf /var/lib/apt/lists/*
+# Clean up
+# && apt-get autoremove -y \
+# && apt-get clean -y \
+# && rm -rf /var/lib/apt/lists/*
 
 # this is useful
 RUN apt-get install -y sqlite
