@@ -6,5 +6,6 @@
         "activityBar.background": "#023523",
         "titleBar.activeBackground": "#034A30",
         "titleBar.activeForeground": "#EDFEF8"
-    }
+    },
+    "solargraph.useBundler": true
 }

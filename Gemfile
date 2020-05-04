@@ -42,6 +42,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # we want this for formatting
   gem 'rufo'
+  # for intellisense in VSCode
+  gem 'solargraph'
 end
 
 group :test do
