@@ -33,7 +33,7 @@
 		// also bundler, do your things here
 		"BUNDLE_USER_CACHE": "/devcache/bundle",
 		// edit commit messages in VSCode
-		"VISUAL": "code -w"
+		// "VISUAL": "code -w"
 	},
 	"remoteEnv": {
 		"PATH": "/devcache/gems/bin:${containerEnv:PATH}"
