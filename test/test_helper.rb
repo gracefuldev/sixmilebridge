@@ -1,6 +1,9 @@
-ENV['RAILS_ENV'] ||= 'test'
-require_relative '../config/environment'
-require 'rails/test_help'
+ENV["RAILS_ENV"] ||= "test"
+require_relative "../config/environment"
+require "rails/test_help"
+
+Capybara.server_host = ENV.fetch("CAPYBARA_SERVER_HOST")
+Capybara.server_port = ENV.fetch("CAPYBARA_SERVER_PORT")
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers

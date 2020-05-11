@@ -2,7 +2,10 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.112.0/containers/ruby-2-rails-5
 {
 	"name": "Ruby 2 Rails",
-	"dockerFile": "Dockerfile",
+	//"dockerFile": "Dockerfile",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
 		"terminal.integrated.shell.linux": "/bin/bash"
@@ -13,9 +16,9 @@
 		"castwide.solargraph"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [
-		3000
-	],
+	// "forwardPorts": [
+	// 	 3000,
+	// ],
 	"mounts": [
 		// This is a cache file for development temp files that should persist between 
 		// container rebuilds. E.g. this will keep you from having to wait a billion years
@@ -28,12 +31,14 @@
 		"type=bind,source=${localEnv:HOME}${localEnv:USERPROFILE}/.netrc,target=/root/.netrc"
 	],
 	"containerEnv": {
-		// store zillions of gems on the volume
-		"GEM_HOME": "/devcache/gems",
-		// also bundler, do your things here
-		"BUNDLE_USER_CACHE": "/devcache/bundle",
-		// edit commit messages in VSCode
-		// "VISUAL": "code -w"
+		// // store zillions of gems on the volume
+		// "GEM_HOME": "/devcache/gems",
+		// // also bundler, do your things here
+		// "BUNDLE_USER_CACHE": "/devcache/bundle",
+		// // edit commit messages in VSCode
+		// "VISUAL": "code -w",
+		// // for system tests, open the browser in XWindows. Requires X410 or similar on your Windows host
+		// "DISPLAY": "host.docker.internal:0.0"
 	},
 	"remoteEnv": {
 		"PATH": "/devcache/gems/bin:${containerEnv:PATH}"
