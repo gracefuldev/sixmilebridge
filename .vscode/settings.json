@@ -7,5 +7,6 @@
         "titleBar.activeBackground": "#034A30",
         "titleBar.activeForeground": "#EDFEF8"
     },
-    "solargraph.useBundler": true
+    "solargraph.useBundler": true,
+    "files.autoSave": "onFocusChange"
 }
