@@ -1,10 +1,10 @@
 Honeycomb.configure do |config|
-  honeycomb_key = ENV["HONEYCOMB_KEY"]
+  honeycomb_key = ENV["HONEYCOMB_WRITEKEY"]
   if honeycomb_key.blank? && Rails.env.production?
-    raise "Unable to send events. Not OK. Define HONEYCOMB_KEY to our Honeycomb API key"
+    raise "Unable to send events. Not OK. Define HONEYCOMB_WRITEKEY to our Honeycomb API key"
   end
   if honeycomb_key.blank? # it's OK to not send events
-    warn "Not sending data to Honeycomb. Define HONEYCOMB_KEY to enable tracing."
+    warn "Not sending data to Honeycomb. Define HONEYCOMB_WRITEKEY to enable tracing."
     break
   end
   config.write_key = honeycomb_key

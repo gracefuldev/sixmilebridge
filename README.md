@@ -58,8 +58,10 @@ To link your git repo to the heroku app: `heroku git:remote sixmilebridge`
 
 ### Development
 
-You can copy .env.example to .env to put secrets in, like the HONEYCOMB_KEY if you want to send stuff to Honeycomb in dev.
+You can copy `.env.example` to `.env` to put secrets in, like the HONEYCOMB_WRITEKEY if you want to send stuff to Honeycomb in dev.
+
+The `.env` file is ignored by git.
 
 ### Production
 
-`heroku config:set HONEYCOMB_KEY=<letters and numbers>`
+`heroku config:set HONEYCOMB_WRITEKEY=<letters and numbers>`

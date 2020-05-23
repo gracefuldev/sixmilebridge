@@ -25,7 +25,7 @@ services:
       BUNDLE_USER_CACHE: /devcache/bundle
       DISPLAY: host.docker.internal:0.0
       BINDING: 0.0.0.0
-      HONEYCOMB_KEY: "${HONEYCOMB_KEY}"
+      HONEYCOMB_WRITEKEY: "${HONEYCOMB_WRITEKEY}"
     
     volumes:
       - type: bind
