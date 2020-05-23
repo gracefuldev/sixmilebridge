@@ -31,3 +31,7 @@ If you're going to deploy, then you'll need to log in to Heroku.
 Inside the container, you can `heroku login`.
 
 To link your git repo to the heroku app: `heroku git:remote sixmilebridge`
+
+## secrets
+
+You can copy .env.example to .env to put secrets in, like the HONEYCOMB_KEY if you want to send stuff to Honeycomb in dev.
