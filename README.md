@@ -18,6 +18,26 @@ volume: cache
 
 This is for bundle install, so we don't have to download the world again when we start a fresh container.
 
+## Test
+
+System test is interesting. Here's how to run them on the host browser.
+
+On your real computer, install Chrome and chromedriver. ([what is chromedriver?](https://avdi.codes/rails-6-system-tests-from-top-to-bottom/))
+
+Then run this to let chromedriver accept connections only from the Docker container that will run your system tests.
+
+```
+chromedriver --whitelisted-ips=$(docker container inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'  sixmilebridge_devcontainer_app_1)
+```
+
+and then when the firewall yells at you, give it access on private networks.
+
+In the app's docker container, `rails test:system`
+
+For a full description of how we got this working: https://avdi.codes/run-rails-6-system-tests-in-docker-using-a-host-browser/
+
+## Deploying
+
 ### Heroku login
 
 (only if you're gonna do stuff with prod, like deploy)
