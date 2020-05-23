@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   get "/invite", to: "invitations#new"
 
   # Operator interfaces (like for us)
-  scope :operator do
-    # removing until we can secure it
-    # resources :islanders
+  # In prod this needs to be behind auth
+  unless Rails.env.production?
+    scope :operator do
+      resources :islanders
+    end
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

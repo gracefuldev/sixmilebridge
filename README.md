@@ -32,7 +32,9 @@ chromedriver --whitelisted-ips=$(docker container inspect -f '{{range .NetworkSe
 
 and then when the firewall yells at you, give it access on private networks.
 
-In the app's docker container, `rails test:system`
+In the app's docker container, `RUBYOPT=-W0 rails test:system`
+
+(the RUBYOPT=-W0 suppresses warnings, including a zillion deprecation warnings from Ruby 2.7, which obscure the test output.)
 
 For a full description of how we got this working: https://avdi.codes/run-rails-6-system-tests-in-docker-using-a-host-browser/
 
