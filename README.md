@@ -1,22 +1,30 @@
-# Secret Project Codename Negroni
+# Project for catching up to people without calendaring
 
 ## Development
 
 Assumption: we're running Docker for linux containers, and open this project in VSCode, and have the Remote Containers plugin for VSCode.
 
-### Cache volume
+### Docker compose
 
-you'll need a volume for the caching of all the gems!!!
+service 1: Rails.
 
-`docker volume create negronicache`
+In development we use sqlite, so we don't need a db container
 
-In devcontainer.json, that gets mounted as a volume into the container.
+service 2: Selenium
+
+Not yet used; it's for headlessly running system tests, someday
+
+volume: cache
+
+This is for bundle install, so we don't have to download the world again when we start a fresh container.
 
 ### Heroku login
 
 We mount login creds from your home directory into the container.
 
 Create `~/.netrc` if it doesn't yet exist on your computer.
+
+... is this still true?
 
 If you're going to deploy, then you'll need to log in to Heroku.
 
