@@ -35,7 +35,7 @@
 		"PATH": "/devcache/gems/bin:${containerEnv:PATH}"
 	},
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "bundle install; yarn install; rails webpacker:compile",
+	"postCreateCommand": "bundle install; yarn install; rails webpacker:compile; rails db:migrate db:seed",
 	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
 	// "remoteUser": "vscode"
 }

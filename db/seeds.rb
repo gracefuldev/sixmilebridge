@@ -5,4 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Islander.create(email: "avdi@avdi.codes", timezone: "(GMT-06:00) Central Time (US & Canada)")
+Islander.find_or_create_by(email: "avdi@avdi.codes") do |avdi|
+  avdi.timezone = "(GMT-06:00) Central Time (US & Canada)"
+end
