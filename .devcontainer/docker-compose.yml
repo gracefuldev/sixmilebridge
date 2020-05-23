@@ -24,6 +24,7 @@ services:
       GEM_HOME: /devcache/gems
       BUNDLE_USER_CACHE: /devcache/bundle
       DISPLAY: host.docker.internal:0.0
+      BINDING: 0.0.0.0
     
     volumes:
       - type: bind
