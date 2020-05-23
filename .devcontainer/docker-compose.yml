@@ -27,6 +27,9 @@ services:
     
     volumes:
       - type: bind
+        source: ${HOME}${USERPROFILE}/.netrc
+        target: /root/.netrc
+      - type: bind
         source: ..
         target: /workspace
         consistency: cached

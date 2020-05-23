@@ -20,50 +20,14 @@ This is for bundle install, so we don't have to download the world again when we
 
 ### Heroku login
 
+(only if you're gonna do stuff with prod, like deploy)
+
 We mount login creds from your home directory into the container.
 
-Create `~/.netrc` if it doesn't yet exist on your computer.
-
-... is this still true?
+Create `~/.netrc` if it doesn't yet exist on your computer. (If it doesn't, and you've started the container, I'm sorry. It probably screwed it up and made an empty directory there. Remove that, create an empty file instead, and rebuild the container in VSCode.)
 
 If you're going to deploy, then you'll need to log in to Heroku.
 
 Inside the container, you can `heroku login`.
 
-### Finally
-
-Then have VSCode open this project in a container.
-
-## Cruft
-
-Things you may want to cover:
-
-* Ruby version
-
-which apparently is 2.5 but we want 2.7 but installing that on Debian 10 is nontrivial
-
-* System dependencies
-
-see Dockerfile
-
-* Configuration
-
-* Database creation
-
-there's a database?
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-cronch cronch
-
-* Deployment instructions
-
-please
-
-* ...
-
-That's supported in Ruby 2.7
+To link your git repo to the heroku app: `heroku git:remote sixmilebridge`
