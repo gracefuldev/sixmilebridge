@@ -19,8 +19,8 @@ services:
 
     environment:
       SELENIUM_REMOTE_HOST: selenium
-      CAPYBARA_SERVER_PORT: "${CAPYBARA_SERVER_PORT:-3434}"
-      CAPYBARA_SERVER_HOST: "${CAPYBARA_SERVER_PORT:-0.0.0.0}"
+      CAPYBARA_SERVER_PORT: "${CAPYBARA_SERVER_PORT:-3434}" # you'll get it from .env if you define it there
+      CAPYBARA_SERVER_HOST: "${CAPYBARA_SERVER_HOST:-0.0.0.0}"
       GEM_HOME: /devcache/gems
       BUNDLE_USER_CACHE: /devcache/bundle
       DISPLAY: host.docker.internal:0.0
