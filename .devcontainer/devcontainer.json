@@ -21,17 +21,6 @@
 	// "forwardPorts": [
 	// 	 3000,
 	// ],
-	"mounts": [
-		// This is a cache file for development temp files that should persist between 
-		// container rebuilds. E.g. this will keep you from having to wait a billion years
-		// for bundler to rebuild binary Rubygems.
-		// Docker will generate it if it doesn't already exist. Probably.
-		"type=volume,source=sixmilebridgecache,target=/devcache",
-		// You need a .netrc that lets you log in to heroku.
-		// If you don't have ~/.netrc there, create an empty file.
-		// Then, within this container, run 'heroku login'
-		"type=bind,source=${localEnv:HOME}${localEnv:USERPROFILE}/.netrc,target=/root/.netrc"
-	],
 	"containerEnv": {
 		// // store zillions of gems on the volume
 		// "GEM_HOME": "/devcache/gems",
