@@ -1,12 +1,18 @@
 Honeycomb.configure do |config|
   honeycomb_key = ENV["HONEYCOMB_KEY"]
-  if honeycomb_key.blank? 
+  if honeycomb_key.blank?
     warn "Not sending data to Honeycomb. Define HONEYCOMB_KEY to enable tracing."
     break
   end
   config.write_key = honeycomb_key
   config.dataset = Rails.env.production? ? "sixmilebridge" : "sixmilebridge-dev"
   Rails.logger.info "Honeycomb dataset: #{config.dataset}"
+
+  if Rails.env.development?
+    Rails.logger.info("this might log some thingers")
+    config.client = Libhoney::LogClient.new
+  end
+
   config.presend_hook do |fields|
     if fields["name"] == "redis" && fields.has_key?("redis.command")
       # remove potential PII from the redis command
