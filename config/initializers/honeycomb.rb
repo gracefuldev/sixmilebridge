@@ -5,7 +5,8 @@ Honeycomb.configure do |config|
     break
   end
   config.write_key = honeycomb_key
-  config.dataset = "sixmilebridge-dev"
+  config.dataset = Rails.env.production? ? "sixmilebridge" : "sixmilebridge-dev"
+  Rails.logger.info "Honeycomb dataset: #{config.dataset}"
   config.presend_hook do |fields|
     if fields["name"] == "redis" && fields.has_key?("redis.command")
       # remove potential PII from the redis command
