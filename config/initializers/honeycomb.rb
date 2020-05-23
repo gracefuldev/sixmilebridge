@@ -1,6 +1,6 @@
 Honeycomb.configure do |config|
   config.write_key = ENV.fetch("HONEYCOMB_KEY")
-  config.dataset = "sixmilebridge"
+  config.dataset = "sixmilebridge-dev"
   config.presend_hook do |fields|
     if fields["name"] == "redis" && fields.has_key?("redis.command")
       # remove potential PII from the redis command
