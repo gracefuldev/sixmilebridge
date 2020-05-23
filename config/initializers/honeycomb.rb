@@ -1,5 +1,10 @@
 Honeycomb.configure do |config|
-  config.write_key = ENV.fetch("HONEYCOMB_KEY")
+  honeycomb_key = ENV["HONEYCOMB_KEY"]
+  if honeycomb_key.blank? 
+    warn "Not sending data to Honeycomb. Define HONEYCOMB_KEY to enable tracing."
+    break
+  end
+  config.write_key = honeycomb_key
   config.dataset = "sixmilebridge-dev"
   config.presend_hook do |fields|
     if fields["name"] == "redis" && fields.has_key?("redis.command")
