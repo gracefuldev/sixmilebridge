@@ -13,6 +13,8 @@ jobs:
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.7
+    - name: Install SQlite
+      run: sudo apt-get -y install sqlite3 libsqlite3-dev
     - uses: actions/cache@v1
       with:
         path: vender/bundle
