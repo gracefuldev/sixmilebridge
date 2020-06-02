@@ -4,7 +4,7 @@ class InvitationController < ApplicationController
       redirect_to "/auth/developer"
       return
     end
-    inviter = Islander.for_email("avdi@avdi.codes") # IRL this will come out of the session. For now There Is Only One
+    inviter = Islander.get_it_from_the_session # break when you get here, so we can make it work right
     invitation_link = InvitationLink.for(inviter_id: inviter.id, day: Date.new, description: "the only one")
     @subject = "Want to catch up sometime ... random?"
     @body = <<~EOM
