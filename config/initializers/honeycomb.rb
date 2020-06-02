@@ -5,7 +5,7 @@ Honeycomb.configure do |config|
   end
   if honeycomb_key.blank? # it's OK to not send events
     warn "Not sending data to Honeycomb. Define HONEYCOMB_WRITEKEY to enable tracing."
-    break
+    next
   end
   config.write_key = honeycomb_key
   config.dataset = Rails.env.production? ? "sixmilebridge" : "sixmilebridge-dev"
