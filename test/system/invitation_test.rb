@@ -12,4 +12,12 @@ class InvitationTest < ApplicationSystemTestCase
     # now see the invitation page
     assert_text "Send this to your friends!"
   end
+
+  test "get to invitation page from home page" do
+    visit "/"
+    click_on "Log in"
+    log_in(@islander)
+    click_on "Invite people to catch up"
+    assert_equal "/invite", current_path
+  end
 end
