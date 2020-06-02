@@ -4,7 +4,7 @@ class InvitationController < ApplicationController
       redirect_to_auth
       return
     end
-    inviter = Islander.get_it_from_the_session # break when you get here, so we can make it work right
+    inviter = acting_islander
     invitation_link = InvitationLink.for(inviter_id: inviter.id, day: Date.new, description: "the only one")
     @subject = "Want to catch up sometime ... random?"
     @body = <<~EOM
