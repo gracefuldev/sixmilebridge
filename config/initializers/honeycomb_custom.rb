@@ -5,7 +5,6 @@ class HoneycombCustom
 
   def call(env)
     Honeycomb.add_field("request.verb", env["REQUEST_METHOD"])
-  ensure
     @app.call(env)
   end
 end
