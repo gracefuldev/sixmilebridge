@@ -1,6 +1,6 @@
 class InvitationController < ApplicationController
   def desired
-    unless session[:islander_id]
+    unless acting_islander
       redirect_to "/auth/developer"
       return
     end
