@@ -38,6 +38,12 @@ In the app's docker container, `RUBYOPT=-W0 rails test:system`
 
 For a full description of how we got this working: https://avdi.codes/run-rails-6-system-tests-in-docker-using-a-host-browser/
 
+## Shut down docker containers
+
+to clean up, close VSCode and then, from the project directory:
+
+`docker-compose -f .\.devcontainer\docker-compose.yml --project-name "sixmilebridge_devcontainer" down`
+
 ## Deploying
 
 ### Heroku login
