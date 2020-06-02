@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_to_auth(*args)
-    redirect_to "/auth/developer", *args
+    redirect_to "/auth/developer?" + { origin: request.env["PATH_INFO"] }.to_query, *args
   end
 end

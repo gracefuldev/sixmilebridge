@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create unless Rails.env.production?
 
   def create
+    byebug
     @islander = Islander.find_by(email: authorized_email)
     unless @islander
       redirect_to_auth(notice: "Sorry, we're not accepting new patients") # the notice doesn't work
