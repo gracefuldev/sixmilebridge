@@ -1,14 +1,16 @@
 class SessionsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: :create # unless Rails.env.production?
+  skip_before_action :verify_authenticity_token, only: :create
 
   def create
     @islander = Islander.find_by(email: authorized_email)
     unless @islander
-      redirect_to_auth(notice: "Sorry, we're not accepting new patients") # the notice doesn't work
+      Honeycomb.add_field("notice", "rejected new islander")
+      redirect_to helpers.auth_url(desired_path: desired_path)
       return
     end
+    Honeycomb.add_field("islander_id", @islander.id)
     self.acting_islander = @islander
-    redirect_to place_they_were_trying_to_get_when_we_sent_them_to_auth
+    redirect_to desired_path
   end
 
   def delete
@@ -22,7 +24,7 @@ class SessionsController < ApplicationController
     request.env.dig("omniauth.auth", :info, :email) # well, it works for "developer"
   end
 
-  def place_they_were_trying_to_get_when_we_sent_them_to_auth
+  def desired_path
     request.env["omniauth.origin"] or "/"
   end
 end

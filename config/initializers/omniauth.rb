@@ -1,4 +1,9 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :developer # unless Rails.env.production?
-  # provider :twitter, ENV['TWITTER_KEY'], ENV['TWITTER_SECRET']
+  if Rails.env.production?
+    client_id = ENV.fetch "GOOGLE_CLIENT_ID"
+    client_secret = ENV.fetch "GOOGLE_CLIENT_SECRET"
+    provider :google_oauth2, client_id, client_secret, skip_jwt: true
+  else
+    provider :developer # unless Rails.env.production?
+  end
 end
