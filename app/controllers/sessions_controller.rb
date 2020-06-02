@@ -19,10 +19,10 @@ class SessionsController < ApplicationController
   protected
 
   def authorized_email
-    request.env.dig("omniauth.auth", :info, :email)  # well, it works for "developer"
+    request.env.dig("omniauth.auth", :info, :email) # well, it works for "developer"
   end
 
   def place_they_were_trying_to_get_when_we_sent_them_to_auth
-    request.env["omniauth.origin"]
+    request.env["omniauth.origin"] or "/"
   end
 end
