@@ -25,5 +25,7 @@ jobs:
       run: |
         bundle config path vendor/bundle
         bundle install --jobs 4
+    - name: Load DB schema
+      run: rails db:schema:load
     - name: Run tests
-      run: bundle exec rails test
+      run: rails test
