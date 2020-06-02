@@ -1,10 +1,10 @@
 <div>
-Send this to your friends!
+  <h2>Send this to your friends!</h2>
 
-<div class="email-preview">
-<p class="email-subject"><%= @subject %></p>
-<pre class="email-body"><%= @body %></pre>
-</div>
-<p>
-<%= mail_to("", "Click to send", subject: @subject, body: @body) %>
+  <div class="email-preview">
+    <p class="email-subject"><%= @subject %></p>
+    <pre class="email-body"><%= @body %></pre>
+  </div>
+  <p>
+    <%= mail_to("", "Click to send", subject: @subject, body: @body) %>
 </div>

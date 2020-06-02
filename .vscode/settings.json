@@ -22,5 +22,6 @@
     },
     "solargraph.useBundler": true,
     "files.autoSave": "onFocusChange",
-    "peacock.remoteColor": "#000403"
+    "peacock.remoteColor": "#000403",
+    "peacock.color": "#000403"
 }

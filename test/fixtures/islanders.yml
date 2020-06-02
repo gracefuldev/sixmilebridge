@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: MyString
-  timezone: MyString
+  email: avdi@some.email
+  timezone: Eastern
 
 two:
-  email: MyString
-  timezone: MyString
+  email: jess@another.email
+  timezone: Central
