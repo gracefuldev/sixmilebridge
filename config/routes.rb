@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # it said to make this a get ... but for developer it needs to be a post. what is it for others?
   post "/auth/:provider/callback", to: "sessions#create"
 
+  get "/logout", to: "sessions#delete"
+
   # Logged-in islander (user) interfaces
   # this doesn't do anything yet so it's public too right now
   get "/invite", to: "invitation#desired"

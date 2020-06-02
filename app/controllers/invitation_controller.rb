@@ -1,7 +1,7 @@
 class InvitationController < ApplicationController
   def desired
     unless acting_islander
-      redirect_to "/auth/developer"
+      redirect_to_auth
       return
     end
     inviter = Islander.get_it_from_the_session # break when you get here, so we can make it work right
