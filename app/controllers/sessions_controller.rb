@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: :create unless Rails.env.production?
+  skip_before_action :verify_authenticity_token, only: :create # unless Rails.env.production?
 
   def create
     @islander = Islander.find_by(email: authorized_email)
