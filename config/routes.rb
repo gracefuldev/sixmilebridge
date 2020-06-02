@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # authinate
   # it said to make this a get ... but for developer it needs to be a post. what is it for others?
-  post "/auth/:provider/callback", to: "sessions#create"
+  match "/auth/:provider/callback", to: "sessions#create", via: [:post, :get]
 
   get "/logout", to: "sessions#delete"
 
