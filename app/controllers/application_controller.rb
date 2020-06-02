@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  helper_method :acting_islander
+
   def acting_islander
     id = session[:islander_id]
     Islander.find_by(id: id) # cache this

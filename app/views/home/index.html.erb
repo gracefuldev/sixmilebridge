@@ -1,3 +1,8 @@
 <div>
-<h1>Catch Up To Me !</h1>
+  <h1>Catch Up To Me !</h1>
+  <% if acting_islander %>
+  You are <%= acting_islander.email %>. <a href="/logout">Log out</a>
+  <% else %>
+  <a href="/auth/developer">Log in</a>
+  <% end %>
 </div>
