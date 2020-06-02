@@ -1,1 +1,1 @@
-web: puma -C config/puma.rb
+web: puma -C config/puma/production.rb
