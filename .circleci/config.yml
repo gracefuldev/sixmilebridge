@@ -6,7 +6,6 @@ jobs:
   build:
     docker: 
       - image: cimg/ruby:2.7
-    executor: ruby/default
     steps:
       - checkout
       - run:
