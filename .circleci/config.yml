@@ -18,7 +18,7 @@ commands:
 jobs:
   build:
     docker: 
-      - image: cimg/ruby:2.7
+      - image: cimg/ruby:2.7-node
     steps:
       - checkout
       - sayhello
