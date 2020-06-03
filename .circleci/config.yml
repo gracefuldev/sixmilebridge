@@ -12,22 +12,23 @@ commands:
     description: Install gems with Bundler. Except cache usefully
     steps:
       - restore_cache:
-        keys:
-        - << parameters.key >>-{{ checksum "./Gemfile.lock"  }}-{{
-            .Branch }}
+          keys:
+            - << parameters.key >>-{{ checksum "./Gemfile.lock"  }}-{{
+              .Branch }}
       - run:
-        command: |
-          bundle install --deployment
-        name: Bundle Install That Might Cache usefully
+          command: |
+            bundle install --deployment
+          name: Bundle Install That Might Cache usefully
       - save_cache:
         key: << parameters.key >>-{{ checksum "./Gemfile.lock"  }}-{{
-          .Branch }}
+             .Branch }}
         paths:
-        - ./vendor/bundle
+          - ./vendor/bundle
 
 jobs:
   build:
-    docker: cimg/ruby:2.7
+    docker: 
+      - cimg/ruby:2.7
     executor: ruby/default
     steps:
       - checkout
