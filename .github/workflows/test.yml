@@ -19,7 +19,7 @@ jobs:
       run: sudo apt-get -y install sqlite3 libsqlite3-dev
     - uses: actions/cache@v1
       with:
-        path: vender/bundle
+        path: vendor/bundle
         key: bundle-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
           bundle-use-ruby-ubuntu-latest-ruby-2.7-
