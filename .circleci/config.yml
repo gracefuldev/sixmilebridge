@@ -13,6 +13,7 @@ jobs:
           name: Which rubygems?
           command: gem -v
       - run:
-          name: Get a better rubygems
-          command: gem update --system
+          name: Which bundler?
+          command: bundle -v
       - ruby/bundle-install
+      - rake test
