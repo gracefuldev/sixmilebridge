@@ -4,8 +4,6 @@ orbs:
 
 jobs:
   build:
-    docker:
-      - image: ruby:2.7
     executor: ruby/default
     steps:
       - checkout
