@@ -2,12 +2,26 @@ version: 2.1
 orbs:
   node: circleci/node@3.0.0 
 
+commands:
+  sayhello:
+    description: "work dammit"
+    parameters:
+      key:
+        default: "crunchy"
+        type: string
+    steps:
+      - run:
+          name: "fart"
+          command: echo << paramaters.key >>
+        
+
 jobs:
   build:
     docker: 
       - image: cimg/ruby:2.7
     steps:
       - checkout
+      - sayhello
       - run:
           name: Which rubygems?
           command: gem -v
