@@ -1,10 +1,33 @@
 version: 2.1
 orbs:
-  node: circleci/node@3.0.0
-  ruby: circleci/ruby@1.0.0 
+  node: circleci/node@3.0.0 
+
+commands:
+  install-deps:
+    parameters:
+      key:
+        default: gems-v1
+        description: The cache key to use. Change this to clear the cache
+        type: string
+    description: Install gems with Bundler. Except cache usefully
+    steps:
+    - restore_cache:
+        keys:
+        - << parameters.key >>-{{ checksum "./Gemfile.lock"  }}-{{
+          .Branch }}
+    - run:
+        command: |
+          bundle install --deployment
+        name: Bundle Install That Might Cache usefully
+    - save_cache:
+      key: << parameters.key >>-{{ checksum "./Gemfile.lock"  }}-{{
+        .Branch }}
+      paths:
+      - ./vendor/bundle
 
 jobs:
   build:
+    docker: cimg/ruby:2.7
     executor: ruby/default
     steps:
       - checkout
@@ -21,7 +44,7 @@ jobs:
           name: configure bundler
           command: bundle config deployment true
       - ruby/install-deps:
-          key: brisket
+          key: chocoegg
           path: ./vendor/bundle
       - node/install-packages:
           cache-version: stringy-brisket
