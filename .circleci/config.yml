@@ -12,7 +12,7 @@ commands:
     steps:
       - run:
           name: "fart"
-          command: echo << paramaters.key >>
+          command: echo << parameters.key >>
         
 
 jobs:
