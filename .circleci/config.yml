@@ -17,8 +17,12 @@ jobs:
       - run:
           name: We need sqlite
           command: sudo apt-get update && sudo apt-get install -y libsqlite3-dev
+      - run:
+          name: configure bundler
+          command: bundle config deployment true
       - ruby/install-deps:
           key: brisket
+          path: ./vendor/bundle
       - node/install-packages:
           cache-version: stringy-brisket
           pkg-manager: yarn
