@@ -7,8 +7,8 @@ commands:
     description: "work dammit"
     parameters:
       key:
-        default: "crunchy"
         type: string
+        default: "crunchy"
     steps:
       - run:
           name: "fart"
