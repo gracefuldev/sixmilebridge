@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Which bundler?
           command: bundle -v
-      - ruby/bundle-install
+      - ruby/install-deps
       - run:
           name: is there a named step for this?
           command: rake test
