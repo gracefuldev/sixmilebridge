@@ -21,7 +21,7 @@ jobs:
       - image: cimg/ruby:2.7-node
     steps:
       - checkout
-      - sayhello
+      - sayhello:
           key: "butt"
       - run:
           name: Which rubygems?
