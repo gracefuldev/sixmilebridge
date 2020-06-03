@@ -27,6 +27,8 @@ jobs:
       run: |
         bundle config path vendor/bundle
         bundle install --jobs 4
+    - name: Compile Webpacker
+      run: bundle exec rails webpacker:compile
     - name: Load DB schema
       run: bundle exec rails db:schema:load
     - name: Run tests
