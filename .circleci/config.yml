@@ -10,6 +10,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Which bundler?
-          command: bundle -v
+          name: Which rubygems?
+          command: gem -v
+      - gem update --system
       - ruby/bundle-install
