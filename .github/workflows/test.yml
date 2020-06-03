@@ -20,7 +20,7 @@ jobs:
     - uses: actions/cache@v1
       with:
         path: vender/bundle
-        key: bundle-use-ruby-ubuntu-latest-ruby-2.7-${{ hashFiles('**/Gemfile.lock') }}
+        key: bundle-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
           bundle-use-ruby-ubuntu-latest-ruby-2.7-
     - name: Assemble dependencies
