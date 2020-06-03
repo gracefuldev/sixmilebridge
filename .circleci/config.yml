@@ -15,5 +15,8 @@ jobs:
           command: bundle -v
       - ruby/install-deps
       - run:
+          name: migrations
+          command: rails db:schema:load
+      - run:
           name: is there a named step for this?
           command: rake test
