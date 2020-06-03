@@ -20,6 +20,7 @@ jobs:
       - run:
           name: configure bundler
           command: bundle config deployment true
+      - node/install-yarn
       - node/install-packages:
           cache-version: stringy-brisket
           pkg-manager: yarn
