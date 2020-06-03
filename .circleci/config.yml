@@ -11,19 +11,19 @@ commands:
         type: string
     description: Install gems with Bundler. Except cache usefully
     steps:
-    - restore_cache:
+      - restore_cache:
         keys:
         - << parameters.key >>-{{ checksum "./Gemfile.lock"  }}-{{
-          .Branch }}
-    - run:
+            .Branch }}
+      - run:
         command: |
           bundle install --deployment
         name: Bundle Install That Might Cache usefully
-    - save_cache:
-      key: << parameters.key >>-{{ checksum "./Gemfile.lock"  }}-{{
-        .Branch }}
-      paths:
-      - ./vendor/bundle
+      - save_cache:
+        key: << parameters.key >>-{{ checksum "./Gemfile.lock"  }}-{{
+          .Branch }}
+        paths:
+        - ./vendor/bundle
 
 jobs:
   build:
