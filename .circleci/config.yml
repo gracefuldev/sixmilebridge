@@ -16,7 +16,7 @@ jobs:
       - run:
           name: We need sqlite
           command: sudo apt-get update && sudo apt-get install -y libsqlite3-dev
-      - ruby/install-deps
+      - ruby/install-deps:
           key: brisket
       - run:
           name: migrations
