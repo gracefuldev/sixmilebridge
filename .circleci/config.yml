@@ -23,8 +23,11 @@ jobs:
           cache-key: yarn.lock
           pkg-manager: yarn
       - run:
+          name: webpacker compile
+          command: rake webpacker:compile
+      - run:
           name: migrations
           command: rails db:schema:load
       - run:
-          name: is there a named step for this?
+          name: run tests
           command: rake test
