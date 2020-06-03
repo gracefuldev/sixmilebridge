@@ -22,6 +22,7 @@ jobs:
     steps:
       - checkout
       - sayhello
+          key: "butt"
       - run:
           name: Which rubygems?
           command: gem -v
