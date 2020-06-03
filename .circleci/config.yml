@@ -15,7 +15,7 @@ jobs:
           command: bundle -v
       - run:
           name: We need sqlite
-          command: sudo apt-get install -y libsqlite3-dev
+          command: sudo apt-get update && apt-get install -y libsqlite3-dev
       - ruby/install-deps
       - run:
           name: migrations
