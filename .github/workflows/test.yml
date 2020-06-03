@@ -27,6 +27,8 @@ jobs:
       run: |
         bundle config path vendor/bundle
         bundle install --jobs 4
+    - name: Yarn Fucking Install
+      run: yarn install --silent --no-progress --no-audit --no-optional
     - name: Compile Webpacker
       run: bundle exec rails webpacker:compile
     - name: Load DB schema
