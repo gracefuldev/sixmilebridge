@@ -1,5 +1,6 @@
 version: 2.1
 orbs:
+  node: circleci/node@3.0.0
   ruby: circleci/ruby@1.0.0 
 
 jobs:
@@ -18,6 +19,9 @@ jobs:
           command: sudo apt-get update && sudo apt-get install -y libsqlite3-dev
       - ruby/install-deps:
           key: brisket
+      - node/install-packages:
+          cache-key: yarn.lock
+          pkg-manager: yarn
       - run:
           name: migrations
           command: rails db:schema:load
