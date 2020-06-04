@@ -4,23 +4,20 @@ orbs:
 
 commands:
   bundle-install:
-    description: "work dammit"
+    description: "bundle install, with caching"
     parameters:
       key:
         type: string
-        default: "crunchy"
+        default: "v1"
     steps:
       - restore_cache:
          keys:
-            - << parameters.key >>-{{ checksum "./Gemfile.lock" }}-{{ .Branch }}
-      - run:
-          name: tell Bundle to store its gems here
-          command: bundle config set deployment 'true'
+            - bundle-<< parameters.key >>-{{ checksum "./Gemfile.lock" }}-{{ .Branch }}
       - run:
           name: bundle install
-          command: bundle install --deployment
+          command: bundle install --path ./vendor/bundle
       - save_cache:
-          key: << parameters.key >>-{{ checksum "./Gemfile.lock" }}-{{ .Branch }}
+          key: bundle-<< parameters.key >>-{{ checksum "./Gemfile.lock" }}-{{ .Branch }}
           paths:
             - ./vendor/bundle
            
@@ -30,18 +27,12 @@ jobs:
     docker: 
       - image: cimg/ruby:2.7-node
     steps:
+      - run:
+        name: We need sqlite
+        command: sudo apt-get update && sudo apt-get install -y libsqlite3-dev
       - checkout
-      - run:
-          name: Which rubygems?
-          command: gem -v
-      - run:
-          name: Which bundler?
-          command: bundle -v
-      - run:
-          name: We need sqlite
-          command: sudo apt-get update && sudo apt-get install -y libsqlite3-dev
       - bundle-install:
-          key: "butt"
+          key: "v1"
       - node/install-yarn
       - node/install-packages:
           cache-version: stringy-brisket
@@ -50,7 +41,7 @@ jobs:
           name: webpacker compile
           command: rake webpacker:compile
       - run:
-          name: migrations
+          name: good morning database
           command: rake db:schema:load
       - run:
           name: run tests
