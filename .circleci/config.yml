@@ -34,7 +34,6 @@ jobs:
       - checkout
       - bundle-install:
           key: "v1"
-      - node/install-yarn
       - node/install-packages:
           cache-version: stringy-brisket
           pkg-manager: yarn
