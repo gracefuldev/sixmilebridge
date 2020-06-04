@@ -27,8 +27,6 @@ jobs:
   test:
     docker: 
       - image: cimg/ruby:2.7-node
-      - environment:
-        - RUBYOPTS: "-W0"
     steps:
       - run:
           name: We need sqlite
@@ -48,6 +46,8 @@ jobs:
       - run:
           name: run tests
           command: rake test
+          environment:
+            RUBYOPTS: "-W0"
   deploy:
     docker: 
       - image: cimg/ruby:2.7-node
