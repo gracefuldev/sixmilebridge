@@ -3,7 +3,7 @@ orbs:
   node: circleci/node@3.0.0 
 
 commands:
-  sayhello:
+  bundle-install:
     description: "work dammit"
     parameters:
       key:
@@ -13,6 +13,9 @@ commands:
       - restore_cache:
          keys:
             - << parameters.key >>-{{ checksum "./Gemfile.lock" }}-{{ .Branch }}
+      - run:
+          name: tell Bundle to store its gems here
+          command: bundle config set deployment 'true'
       - run:
           name: bundle install
           command: bundle install --deployment
@@ -28,8 +31,6 @@ jobs:
       - image: cimg/ruby:2.7-node
     steps:
       - checkout
-      - sayhello:
-          key: "butt"
       - run:
           name: Which rubygems?
           command: gem -v
@@ -39,9 +40,8 @@ jobs:
       - run:
           name: We need sqlite
           command: sudo apt-get update && sudo apt-get install -y libsqlite3-dev
-      - run:
-          name: configure bundler
-          command: bundle config deployment true
+      - bundle-install:
+          key: "butt"
       - node/install-yarn
       - node/install-packages:
           cache-version: stringy-brisket
