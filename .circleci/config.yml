@@ -12,12 +12,14 @@ commands:
     steps:
       - restore_cache:
          keys:
-            - bundle-<< parameters.key >>-{{ checksum "./Gemfile.lock" }}-{{ .Branch }}
+            - bundle-<< parameters.key >>-{{ arch }}-{{ checksum "./Gemfile.lock" }}-{{ .Branch }}
+            - bundle-<< parameters.key >>-{{ arch }}-{{ checksum "./Gemfile.lock" }}-
+            - bundle-<< parameters.key >>-{{ arch }}-
       - run:
           name: bundle install
           command: bundle install --path ./vendor/bundle
       - save_cache:
-          key: bundle-<< parameters.key >>-{{ checksum "./Gemfile.lock" }}-{{ .Branch }}
+          key: bundle-<< parameters.key >>-{{ arch }}-{{ checksum "./Gemfile.lock" }}-{{ .Branch }}
           paths:
             - ./vendor/bundle
            
