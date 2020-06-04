@@ -10,10 +10,17 @@ commands:
         type: string
         default: "crunchy"
     steps:
+      - restore_cache:
+         keys:
+            - << parameters.key >>-{{ checksum "./Gemfile.lock" }}-{{ .Branch }}
       - run:
-          name: "fart"
-          command: echo << parameters.key >>
-        
+          name: bundle install
+          command: bundle install --deployment
+      - save_cache:
+          key: << parameters.key >>-{{ checksum "./Gemfile.lock" }}-{{ .Branch }}
+          paths:
+            - ./vendor/bundle
+           
 
 jobs:
   build:
