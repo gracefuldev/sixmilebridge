@@ -84,5 +84,7 @@ RUN curl https://cli-assets.heroku.com/install.sh | sh
 RUN gem install rufo
 RUN gem install solargraph
 
+RUN curl -fLSs https://raw.githubusercontent.com/CircleCI-Public/circleci-cli/master/install.sh | bash
+
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
