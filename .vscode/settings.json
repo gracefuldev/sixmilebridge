@@ -2,26 +2,7 @@
     "editor.tabSize": 2,
     "ruby.format": "rufo",
     "ruby.useLanguageServer": true,
-    "workbench.colorCustomizations": {
-        "activityBar.background": "#003729",
-        "titleBar.activeBackground": "#000403",
-        "titleBar.activeForeground": "#e7e7e7",
-        "activityBar.activeBackground": "#003729",
-        "activityBar.activeBorder": "#a600df",
-        "activityBar.foreground": "#e7e7e7",
-        "activityBar.inactiveForeground": "#e7e7e799",
-        "activityBarBadge.background": "#a600df",
-        "activityBarBadge.foreground": "#e7e7e7",
-        "statusBar.background": "#000403",
-        "statusBar.border": "#000403",
-        "statusBar.foreground": "#e7e7e7",
-        "statusBarItem.hoverBackground": "#003729",
-        "titleBar.border": "#000403",
-        "titleBar.inactiveBackground": "#00040399",
-        "titleBar.inactiveForeground": "#e7e7e799"
-    },
     "solargraph.useBundler": true,
     "files.autoSave": "onFocusChange",
-    "peacock.remoteColor": "#000403",
     "peacock.color": "#000403"
 }
