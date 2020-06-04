@@ -51,7 +51,7 @@ jobs:
           command: rake webpacker:compile
       - run:
           name: migrations
-          command: rails db:schema:load
+          command: rake db:schema:load
       - run:
           name: run tests
           command: rake test
