@@ -22,10 +22,9 @@ commands:
           key: bundle-<< parameters.key >>-{{ arch }}-{{ checksum "./Gemfile.lock" }}-{{ .Branch }}
           paths:
             - ./vendor/bundle
-           
 
 jobs:
-  build:
+  test:
     docker: 
       - image: cimg/ruby:2.7-node
     steps:
@@ -48,6 +47,19 @@ jobs:
       - run:
           name: run tests
           command: rake test
+  deploy:
+    docker: 
+      - image: cimg/ruby:2.7-node
+    steps:
       - run:
           name: heroku deploy
           command: git push https://heroku:${HEROKU_API_KEY}@git.heroku.com/${HEROKU_APP_NAME}.git
+
+workflows:
+  version: 2
+  test_and_deploy: 
+    jobs:          
+      - test       
+      - deploy:    
+          requires:
+            - test 
