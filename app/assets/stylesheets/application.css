@@ -17,5 +17,29 @@
  body {
    background-color: lightgreen;
    font-family: Arial, Helvetica, sans-serif;
+   margin: 0;
+ }
+ main {
    margin: 10px;
+ }
+
+ header {
+   padding: 3px;
+   border-width: 0 0 4px 0;
+   border-color: darkgreen;
+   border-style: ridge; 
+   background: rgb(80,180,80);
+   color: white;
+ }
+
+ header div {
+   display: inline;
+ }
+
+ div.nav-links {
+   text-align: right;
+ }
+
+ img.logo {
+   width: 2em;
  }
