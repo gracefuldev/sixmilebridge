@@ -36,6 +36,26 @@
    display: inline;
  }
 
+ h1 {
+   padding: 10vh;
+   text-align: center;
+ }
+
+ div.comic {
+   text-align: center;
+ }
+
+ div.comic img {
+   display: block;
+   width: 80vw;
+   padding: 10px;
+   border-color: black;
+   margin: auto;
+   margin-top: 5px;
+   border-width: 2px;
+   border-style: solid;
+ }
+
  div.nav-links {
    text-align: right;
  }

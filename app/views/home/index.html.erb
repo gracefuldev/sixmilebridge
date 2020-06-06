@@ -1,13 +1,14 @@
 <div>
-  <img width="20%" src="/images/pixie.jpg" alt="Pixie hates calendaring">
   <h1>Catch Up To Me !</h1>
+  <div class="comic">
+    <img src="images/catch-up-panel-1.jpg">
+    <img src="images/catch-up-panel-2.jpg">
+    <img src="images/catch-up-panel-3.jpg">
+  </div>
   <% if acting_islander %>
-  You are <%= acting_islander.email %>. <a href="/logout">Log out</a>
   <div>
     <a href="/invite">Invite people to catch up</a>
   </div>
-  <% else %>
-  <a href=<%= auth_url %>>Log in</a>
   <% end %>
   <div><a href="https://github.com/gracefuldev/sixmilebridge">This project on GitHub</a></div>
 </div>

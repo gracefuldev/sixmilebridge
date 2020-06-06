@@ -14,7 +14,18 @@
   <header>
     <!-- how do I include another layout? ... also there's a rails-y way to make image tags -->
     <div class="logo"><a href="/"><img class="logo" src="images/logo.jpg"></a></div>
-    <div class="nav-links">You</div>
+    <div class="nav-links">
+      <% if acting_islander %>
+      <span class="nav-link">
+        <a href="/logout">Log out</a>
+        <span class="nav-link">
+          <a href="/invite">Invite</a>
+        </span>
+        <span class="nav-who">You are <%= acting_islander.email %></span>
+        <% else %>
+        <a href=<%= auth_url %>>Log in</a>
+        <% end %>
+    </div>
   </header>
   <main>
     <%= yield %>
