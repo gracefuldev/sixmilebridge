@@ -2,7 +2,14 @@
 <html>
 
 <head>
-  <title>Sixmilebridge</title>
+  <title>CatchUpTo.Me</title>
+  <!-- BULMA -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <link rel="stylesheet" href="styles/debug.css">
+  <!-- end BULMA -->
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
@@ -13,7 +20,9 @@
 <body>
   <header>
     <!-- how do I include another layout? ... also there's a rails-y way to make image tags -->
-    <div class="logo"><a href="/"><img class="logo" src="images/logo.jpg"></a></div>
+    <div class="logo"><a href="/">
+        <img class="is-128x128" src="images/logo.jpg">
+      </a></div>
     <div class="nav-links">
       <% if acting_islander %>
       <span class="nav-link">

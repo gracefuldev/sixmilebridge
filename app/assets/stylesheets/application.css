@@ -23,6 +23,10 @@
    margin: 10px;
  }
 
+ h1 {
+   font-size: 5em;
+ }
+
  header {
    padding: 3px;
    border-width: 0 0 4px 0;
@@ -30,6 +34,10 @@
    border-style: ridge; 
    background: rgb(80,180,80);
    color: white;
+ }
+
+ .center {
+   justify-content: center;
  }
 
  header div {
@@ -45,9 +53,8 @@
    text-align: center;
  }
 
- div.comic img {
+ img.comic {
    display: block;
-   width: 80vw;
    padding: 10px;
    border-color: black;
    margin: auto;
