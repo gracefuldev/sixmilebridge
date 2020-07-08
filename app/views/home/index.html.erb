@@ -2,29 +2,36 @@
   <section class="hero">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title">Catch Up To Me !</h1>
+        <div class="block">
+          <h1 class="title is-1">Catch Up To Me !</h1>
+          <h2 class="subtitle is-4">See people you like, in the time you have.</h2>
+        </div>
+        <div class="block">
+          <div class="box">
+            <div class="columns">
+              <div class="column">
+                <img class="comic" src="images/catch-up-panel-1.jpg"><br />
+              </div>
+              <div class="column">
+                <img class="comic" src="images/catch-up-panel-2.jpg"><br />
+              </div>
+              <div class="column">
+                <img class="comic" src="images/catch-up-panel-3.jpg">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
   <section class="section">
     <div class="container">
-      <div class="columns">
-        <div class="column">
-          <img class="comic" src="images/catch-up-panel-1.jpg"><br />
-        </div>
-        <div class="column">
-          <img class="comic" src="images/catch-up-panel-2.jpg"><br />
-        </div>
-        <div class="column">
-          <img class="comic" src="images/catch-up-panel-3.jpg">
-        </div>
+      <% if acting_islander %>
+      <div>
+        <a href="/invite">Invite people to catch up</a>
       </div>
+      <% end %>
+      <div><a href="https://github.com/gracefuldev/sixmilebridge">This project on GitHub</a></div>
     </div>
   </section>
-  <% if acting_islander %>
-  <div>
-    <a href="/invite">Invite people to catch up</a>
-  </div>
-  <% end %>
-  <div><a href="https://github.com/gracefuldev/sixmilebridge">This project on GitHub</a></div>
 </div>
