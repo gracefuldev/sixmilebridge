@@ -1,5 +1,9 @@
 # Project for catching up to people without calendaring
 
+Production: [catchupto.me](https://catchupto.me)
+
+[![<gracefuldev>](https://circleci.com/gh/gracefuldev/sixmilebridge.svg?style=svg)](https://app.circleci.com/pipelines/github/gracefuldev/sixmilebridge)
+
 ## Development
 
 Assumption: we're running Docker for linux containers, and open this project in VSCode, and have the Remote Containers plugin for VSCode.
