@@ -1,10 +1,21 @@
-<div>
-  <h2>Send this to your friends!</h2>
+<div class="container">
+  <div class="block">
+    <h2 class="title is-2">Send this to your friends!</h2>
 
-  <div class="email-preview">
-    <p class="email-subject"><%= @subject %></p>
-    <pre class="email-body"><%= @body %></pre>
+    <div class="card">
+      <div class="card-header">
+        <p class="card-header-title"> <%= @subject %></p>
+      </div>
+      <div class="card-content">
+        <pre><%= @body %></pre>
+      </div>
+      <div class="card-footer">
+        <div class="card-footer-item">
+          <%= mail_to("", "Click to send", subject: @subject, body: @body,
+           class: "button is-primary") %>
+        </div>
+      </div>
+    </div>
+    <p>
   </div>
-  <p>
-    <%= mail_to("", "Click to send", subject: @subject, body: @body) %>
 </div>
