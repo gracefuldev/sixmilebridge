@@ -1,5 +1,9 @@
 # Project for catching up to people without calendaring
 
+Production: [catchupto.me](https://catchupto.me)
+
+Circle CI: [![<gracefuldev>](https://circleci.com/gh/gracefuldev/sixmilebridge.svg?style=svg)](https://app.circleci.com/pipelines/github/gracefuldev/sixmilebridge)
+
 ## Development
 
 Assumption: we're running Docker for linux containers, and open this project in VSCode, and have the Remote Containers plugin for VSCode.
@@ -44,11 +48,17 @@ to clean up, close VSCode and then, from the project directory:
 
 `docker-compose -f .\.devcontainer\docker-compose.yml --project-name "sixmilebridge_devcontainer" down`
 
-## Deploying
+## Deploy
+
+[Circle CI](https://app.circleci.com/pipelines/github/gracefuldev/sixmilebridge) handles that
+
+## Production logs
 
 ### Heroku login
 
-(only if you're gonna do stuff with prod, like deploy)
+(only if you're gonna do stuff with prod, like look at logs)
+
+(where by "you" I mean "us" not people generally)
 
 We mount login creds from your home directory into the container.
 
@@ -59,6 +69,8 @@ If you're going to deploy, then you'll need to log in to Heroku.
 Inside the container, you can `heroku login`.
 
 To link your git repo to the heroku app: `heroku git:remote sixmilebridge`
+
+Now you can `heroku logs`
 
 ## secrets
 

@@ -7,7 +7,7 @@ class SessionsTest < ApplicationSystemTestCase
 
   test "log in from the home page" do
     visit "/"
-    assert_selector "h1", text: "Catch Up To Me !"
+    assert_selector "h1", text: "Catch Up To Me!"
     click_on "Log in"
     # you can authenticate
     log_in(@islander)
