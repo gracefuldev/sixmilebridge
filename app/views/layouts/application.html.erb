@@ -20,20 +20,35 @@
 <body>
   <header>
     <!-- how do I include another layout? ... also there's a rails-y way to make image tags -->
-    <div class="logo"><a href="/">
-        <img class="is-128x128" src="images/logo.jpg">
-      </a></div>
-    <div class="nav-links">
-      <% if acting_islander %>
-      <span class="nav-link">
-        <a href="/logout">Log out</a>
-        <span class="nav-link">
-          <a href="/invite">Invite</a>
-        </span>
-        <span class="nav-who">You are <%= acting_islander.email %></span>
-        <% else %>
-        <a href=<%= auth_url %>>Log in</a>
-        <% end %>
+    <div class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <img src="images/logo.jpg">
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <% if acting_islander %>
+          <a class="navbar-item" href="/invite">Invite</a>
+          <% end %>
+        </div>
+        <div class="navbar-end">
+          <% if acting_islander %>
+          <div class="navbar-item">
+            <span class="nav-who">You are <%= acting_islander.email %></span>
+          </div>
+          <a class="navbar-item" href="/logout">Log out</a>
+          <% else %>
+          <a class="navbar-item" href=<%= auth_url %>>Log in</a>
+          <% end %>
+        </div>
+      </div>
     </div>
   </header>
   <main>
