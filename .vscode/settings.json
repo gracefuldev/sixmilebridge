@@ -1,8 +1,0 @@
-{
-    "editor.tabSize": 2,
-    "ruby.format": "rufo",
-    "ruby.useLanguageServer": true,
-    "solargraph.useBundler": true,
-    "files.autoSave": "onFocusChange",
-    "peacock.color": "#000403"
-}
