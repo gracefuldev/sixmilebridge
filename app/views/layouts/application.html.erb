@@ -29,6 +29,8 @@
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
+
+
         </a>
       </div>
       <div class="navbar-menu">
@@ -40,7 +42,12 @@
         <div class="navbar-end">
           <% if acting_islander %>
           <div class="navbar-item">
-            Admin-slider
+            <div class="field">
+              <input id="switchExample" type="checkbox" name="switchExample" class="switch is-rounded is-danger" checked="checked">
+              <label for="switchExample">admin</label>
+            </div>
+          </div>
+          <div class="navbar-item">
             <span class="nav-who">You are <%= acting_islander.email %></span>
           </div>
           <a class="navbar-item" href="/logout">Log out</a>
