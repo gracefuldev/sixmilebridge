@@ -2,7 +2,7 @@ require 'test_helper'
 
 class IslandersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @islander = islanders(:one)
+    @islander = islanders(:avdi)
   end
 
   test "should get index" do

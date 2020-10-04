@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class SessionsTest < ApplicationSystemTestCase
   setup do
-    @islander = islanders(:one)
+    @islander = islanders(:avdi)
   end
 
   test "log in from the home page" do

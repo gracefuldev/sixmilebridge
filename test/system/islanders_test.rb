@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class IslandersTest < ApplicationSystemTestCase
   setup do
-    @islander = islanders(:one)
+    @islander = islanders(:avdi)
   end
 
   test "visiting the index" do
