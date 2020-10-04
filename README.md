@@ -36,7 +36,7 @@ The local version uses a basic auth instead of Google auth. You can log in with 
 
 System test is interesting. Here's how to run them on the host browser.
 
-On your real computer, install Chrome and chromedriver. ([what is chromedriver?](https://avdi.codes/rails-6-system-tests-from-top-to-bottom/))
+On your real computer, install Chrome and chromedriver. ([what is chromedriver?](https://avdi.codes/rails-6-system-tests-from-top-to-bottom/)) You can install chromedriver on windows with (in an admin shell) `choco install chromedriver`.
 
 Then run this to let chromedriver accept connections only from the Docker container that will run your system tests.
 
