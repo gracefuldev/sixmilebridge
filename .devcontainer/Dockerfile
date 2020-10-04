@@ -49,6 +49,8 @@ RUN apt-get update \
     rake \
     ruby-debug-ide \
     debase \
+    # this one is for Ruby language support in VSCode
+    solargraph \
     #
     # Install sinatra MVC components
     && gem install \
