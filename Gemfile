@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
+gem "bootsnap", ">= 1.4.2", require: false
 
 # instrumentation
 gem "honeycomb-beeline"
@@ -32,7 +32,7 @@ gem "honeycomb-beeline"
 # auth
 gem "omniauth"
 gem "omniauth-google-oauth2"
-gem 'dotenv-rails'
+gem "dotenv-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
