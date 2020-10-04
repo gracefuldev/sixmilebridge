@@ -17,7 +17,7 @@ commands:
             - bundle-<< parameters.key >>-{{ arch }}-
       - run:
           name: bundle install
-          command: bundle install --path ./vendor/bundle
+          command: bundle config set path './vendor/bundle' && bundle install
       - save_cache:
           key: bundle-<< parameters.key >>-{{ arch }}-{{ checksum "./Gemfile.lock" }}-{{ .Branch }}
           paths:
