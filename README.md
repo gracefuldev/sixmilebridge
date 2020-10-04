@@ -22,6 +22,16 @@ volume: cache
 
 This is for bundle install, so we don't have to download the world again when we start a fresh container.
 
+## Run locally
+
+Avdi, is there a command to get webpacker to precompile? because hitting the server for the first time takes FOREVER and that's just weird.
+
+`rails server`
+
+(not "serve", no, and that won't suggest that you 'server' either. Also, it'll tell you to try --tasks, but NO, that only shows you the ones implemented in rake, so you're fucked if you don't know what to type. dammit rails)
+
+The local version uses a basic auth instead of Google auth. You can log in with any name as long as you use Avdi's email address.
+
 ## Test
 
 System test is interesting. Here's how to run them on the host browser.

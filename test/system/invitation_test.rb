@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class InvitationTest < ApplicationSystemTestCase
   setup do
-    @islander = islanders(:one)
+    @islander = islanders(:one) # TODO: Avdi, please tell me how this works again - Jess
   end
 
   test "desiring to extend an invitation" do
