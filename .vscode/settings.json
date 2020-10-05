@@ -1,3 +1,4 @@
 {
-  "solargraph.commandPath": "/devcache/gems/bin/solargraph"
+  "solargraph.commandPath": "/devcache/gems/bin/solargraph",
+  "editor.tabSize": 2
 }
