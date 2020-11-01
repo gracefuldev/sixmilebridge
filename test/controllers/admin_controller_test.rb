@@ -6,4 +6,5 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
     get admin_url
     assert_response :missing 
   end
+
 end

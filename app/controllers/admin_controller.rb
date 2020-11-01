@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   def index
-    render :file => "#{Rails.root}/public/404.html", :status => 404
+    render_not_found
   end
 
  end
