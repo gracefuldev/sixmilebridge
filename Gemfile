@@ -52,6 +52,8 @@ group :development do
   gem 'rufo'
   # for intellisense in VSCode
   gem 'solargraph'
+  gem 'ruby-debug-ide'
+  gem 'byebug'
 end
 
 group :test do
