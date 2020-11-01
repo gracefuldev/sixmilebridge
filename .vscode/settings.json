@@ -1,4 +1,5 @@
 {
   "solargraph.commandPath": "/devcache/gems/bin/solargraph",
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "rubyTestExplorer.testFramework": "minitest"
 }
