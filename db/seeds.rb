@@ -12,3 +12,7 @@ end
 Islander.find_or_create_by(email: "jessitron@jessitron.com") do |jess|
   jess.timezone = "(GMT-06:00) Central Time (US & Canada)"
 end
+
+Islander.find_or_create_by(email: "contact@jessitron.com") do |tyler|
+  tyler.timezone = "(GMT-06:00) Central Time (US & Canada)"
+end
