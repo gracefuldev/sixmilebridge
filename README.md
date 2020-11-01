@@ -70,19 +70,13 @@ to clean up, close VSCode and then, from the project directory:
 
 (where by "you" I mean "us" not people generally)
 
-We mount login creds from your home directory into the container.
-
-Create `~/.netrc` if it doesn't yet exist on your computer. (If it doesn't, and you've started the container, I'm sorry. It probably screwed it up and made an empty directory there. Remove that, create an empty file instead, and rebuild the container in VSCode.)
-
 If you're going to deploy, then you'll need to log in to Heroku.
 
-Inside the container, you can `heroku login`.
+Inside the container, you can `heroku login -i`.
 
 To link your git repo to the heroku app: `heroku git:remote sixmilebridge`
 
-Now you can `heroku logs`
-
-## secrets
+Now you can `heroku logs` or `heroku run rake db:seed`
 
 ### Development
 
