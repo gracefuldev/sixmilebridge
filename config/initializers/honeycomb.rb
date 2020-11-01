@@ -4,7 +4,7 @@ Honeycomb.configure do |config|
     raise "Unable to send events. Not OK. Define HONEYCOMB_WRITEKEY to our Honeycomb API key"
   end
   if honeycomb_key.blank? # it's OK to not send events
-    warn "Not sending data to Honeycomb. Define HONEYCOMB_WRITEKEY to enable tracing."
+    # warn "Not sending data to Honeycomb. Define HONEYCOMB_WRITEKEY to enable tracing."
     next
   end
   config.write_key = honeycomb_key
