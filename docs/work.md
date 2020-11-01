@@ -48,6 +48,12 @@ copied from Roam:
     - Anyone who clicks on the link can enter their name (optional) and email (required) and time zone (defaulted to browser's current)
     - After they accept that, we'll ask them about timeslots.
 
+## More things that are hard to remember
 
+### How do I change this page
+
+The top-level layout is in `application.html.erb`
+
+We do have a CSS framework. it is Bulma. 
 
 
