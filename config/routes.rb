@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   # this doesn't do anything yet so it's public too right now
   get "/invite", to: "invitation#desired"
 
+  get "/admin", to: "admin#index"
+
   # Operator interfaces (like for us)
   # In prod this needs to be behind auth
   unless Rails.env.production?
