@@ -6,7 +6,7 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
     OmniAuth.config.test_mode = true
   end
 
-  test "admin gives civilian a 404" do
+  test "admin gives tourist a 404" do
     get admin_url
     assert_response :missing 
   end
@@ -24,6 +24,12 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
     follow_redirect!
   ensure
     OmniAuth.config.mock_auth[:developer] = nil
+  end
+
+  test "Rando islander cannot see the admin page" do
+    log_in_as(:joe)
+    get admin_url
+    assert_response :missing
   end
 
 end

@@ -1,9 +1,14 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+# admin
 avdi:
-  email: avdi@some.email
+  email: avdi@avdi.codes
   timezone: Eastern
 
 two:
   email: jess@another.email
   timezone: Central
+
+joe:
+  email: joe@shmoe.oh
+  timezone: Pacific
