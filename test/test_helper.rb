@@ -2,7 +2,7 @@ ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
 
-class ActiveSupport::TestCase
+class ActiveSupport::TestCase # reopen this class
   # Run tests in parallel with specified workers
   parallelize(workers: 1) # no. just don't. The system tests keep failing with "port already in use"
 

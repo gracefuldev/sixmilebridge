@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
 
   def create
     trace_login_attempt do
+      p request.env
       @islander = Islander.find_by(email: authorized_email)
       if (@islander)
         trace_login_success

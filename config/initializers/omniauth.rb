@@ -4,7 +4,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     client_secret = ENV.fetch "GOOGLE_CLIENT_SECRET"
     provider :google_oauth2, client_id, client_secret, skip_jwt: true
   else
-    provider :developer # unless Rails.env.production?
+    provider :developer
   end
 end
 

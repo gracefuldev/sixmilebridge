@@ -1,6 +1,7 @@
 class AdminController < ApplicationController
   def index
-    render_not_found
+    return render_not_found if acting_islander.nil?
+    render plain: "Yay, you found me"
   end
 
- end
+end
