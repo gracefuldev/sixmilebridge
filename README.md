@@ -74,7 +74,7 @@ If you're going to deploy, then you'll need to log in to Heroku.
 
 Inside the container, you can `heroku login -i`.
 
-To link your git repo to the heroku app: `heroku git:remote sixmilebridge`
+To link your git repo to the heroku app: `heroku git:remote sixmilebridge` (or add `--app sixmilebridge` to each future command instead)
 
 Now you can `heroku logs` or `heroku run rake db:seed`
 
