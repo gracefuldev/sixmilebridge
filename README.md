@@ -87,3 +87,7 @@ The `.env` file is ignored by git.
 ### Production
 
 `heroku config:set HONEYCOMB_WRITEKEY=<letters and numbers>`
+
+### Pie
+
+Is better than cake.
