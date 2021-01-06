@@ -1,53 +1,12 @@
-#-------------------------------------------------------------------------------------------------------------
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
-#-------------------------------------------------------------------------------------------------------------
-
-version: '3.2'
+version: "3.2"
 services:
   app:
-    # Uncomment the next line to use a non-root user for all processes. You can also
-    # simply use the "remoteUser" property in devcontainer.json if you just want VS Code
-    # and its sub-processes (terminals, tasks, debugging) to execute as the user. On Linux,
-    # you may need to update USER_UID and USER_GID in .devcontainer/Dockerfile to match your
-    # user if not 1000. See https://aka.ms/vscode-remote/containers/non-root for details.
-    # user: node
-
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
-
-    environment:
-      SELENIUM_REMOTE_HOST: selenium
-      CAPYBARA_SERVER_PORT: "${CAPYBARA_SERVER_PORT:-3434}" # you'll get it from .env if you define it there
-      CAPYBARA_SERVER_HOST: "${CAPYBARA_SERVER_HOST:-0.0.0.0}"
-      GEM_HOME: /devcache/gems
-      BUNDLE_USER_CACHE: /devcache/bundle
-      DISPLAY: host.docker.internal:0.0
-      BINDING: 0.0.0.0
-      HONEYCOMB_WRITEKEY: "${HONEYCOMB_WRITEKEY}"
-    
     volumes:
       - type: bind
         source: ..
         target: /workspace
-        consistency: cached
-      - type: volume
-        source: sixmilebridgecache
-        target: /devcache
-
-    ports:
-      - "${CAPYBARA_SERVER_PORT:-3434}:${CAPYBARA_SERVER_PORT:-3434}"
-      - "3000:3000"
-      
-    # Overrides default command so things don't shut down after the process ends.
+    working_dir: /workspace
     command: sleep infinity
-
-    depends_on:
-      - selenium
-
-  selenium:
-    image: selenium/standalone-chrome
-
-volumes:
-  sixmilebridgecache:
