@@ -10,3 +10,8 @@ services:
         target: /workspace
     working_dir: /workspace
     command: sleep infinity
+    environment:
+      BUNDLE_PATH: vendor/bundle
+      INTERFACE: "0.0.0.0"
+    ports:
+      - "3000:3000"
