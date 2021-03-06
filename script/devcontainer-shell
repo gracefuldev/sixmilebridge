@@ -1,6 +1,5 @@
 #!/bin/bash
 project_root=$(dirname "${BASH_SOURCE[0]}")/..
-dotenv_file=${project_root}/.env 
 if [ -e ${project_root}/.env ]; then
   source ${project_root}/.env
 fi
