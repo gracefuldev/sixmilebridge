@@ -1,90 +1,14 @@
-FROM ruby:2.7
+FROM ruby:2.7.2
+RUN apt-get update \
+  && apt-get install -y yarnpkg vim lsof \
+  && ln -s /usr/bin/yarnpkg /usr/local/bin/yarn \
+  && rm -rf /var/lib/apt/lists/*
 
-# Avoid warnings by switching to noninteractive
-ENV DEBIAN_FRONTEND=noninteractive
+COPY sixmilebridge-load-profile.sh /etc/profile.d/
 
-# This Dockerfile adds a non-root user with sudo access. Use the "remoteUser"
-# property in devcontainer.json to use it. On Linux, the container user's GID/UIDs
-# will be updated to match your local UID/GID (when using the dockerFile property).
-# See https://aka.ms/vscode-remote/containers/non-root-user for details.
-ARG USERNAME=vscode
+ARG USERNAME=developer
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
-# Configure apt and install packages
-RUN apt-get update \
-    && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
-    #
-    # Install vim, git, process tools, lsb-release
-    && apt-get install -y \
-    vim \
-    git \
-    openssh-client \
-    less \
-    iproute2 \
-    procps \
-    lsb-release \
-    #
-    # Install ruby
-    && apt-get install -y \
-    ruby \
-    ruby-dev \
-    build-essential \
-    libsqlite3-dev \
-    zlib1g-dev \
-    libxml2 \
-    #
-    # Install nodejs
-    && apt-get install -y nodejs \
-    # 
-    # Install yarn
-    && apt-get install -y curl apt-transport-https lsb-release \
-    && curl -sS https://dl.yarnpkg.com/$(lsb_release -is | tr '[:upper:]' '[:lower:]')/pubkey.gpg | apt-key add - 2>/dev/null \
-    && echo "deb https://dl.yarnpkg.com/$(lsb_release -is | tr '[:upper:]' '[:lower:]')/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
-    && apt-get update \
-    && apt-get -y install --no-install-recommends yarn \
-    #
-    # Install debug tools
-    && gem install \
-    rake \
-    ruby-debug-ide \
-    debase \
-    #
-    # Install sinatra MVC components
-    && gem install \
-    rails \
-    webdrivers \
-    #
-    # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
-    && groupadd --gid $USER_GID $USERNAME \
-    && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
-    # [Optional] Add sudo support for the non-root user
-    && apt-get install -y sudo \
-    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
-    && chmod 0440 /etc/sudoers.d/$USERNAME
-# Clean up
-# && apt-get autoremove -y \
-# && apt-get clean -y \
-# && rm -rf /var/lib/apt/lists/*
-
-# this is useful
-RUN apt-get install -y sqlite
-
-# and this, so we can install production gems. which is necessary for deploy.
-RUN apt-get install -y libpq-dev
-
-ENV BUNDLE_SILENCE_ROOT_WARNING stfu
-
-# Spring in Rails is supposed to make development faster but it is not reliable
-ENV DISABLE_SPRING 1
-
-# Heroku
-RUN curl https://cli-assets.heroku.com/install.sh | sh
-
-RUN gem install rufo
-RUN gem install solargraph
-
-RUN curl -fLSs https://raw.githubusercontent.com/CircleCI-Public/circleci-cli/master/install.sh | bash
-
-# Switch back to dialog for any ad-hoc use of apt-get
-ENV DEBIAN_FRONTEND=dialog
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME
